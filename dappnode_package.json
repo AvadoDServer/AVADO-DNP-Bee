@@ -1,0 +1,30 @@
+{
+  "name": "bee.avado.dnp.dappnode.eth",
+  "version": "0.0.10",
+  "description": "Bee Swarm node",
+  "avatar": "/ipfs/QmPVzQQQz7YvL1sWtrb3Yxqjq4kfxaUida7zSNmtD5sgDi",
+  "type": "service",
+  "autoupdate": true,
+  "upstream": "v0.5.0",
+  "image": {
+    "path": "bee.avado.dnp.dappnode.eth_0.0.10.tar.xz",
+    "hash": "/ipfs/QmUcwZPea9M7uzeXKBPWJWmEgakEBLeBUEUfpBdirL8jgk",
+    "size": 20655704,
+    "restart": "always",
+    "environment": [
+      "EXTRA_OPTS"
+    ],
+    "volumes": [
+      "data:/home/bee"
+    ],
+    "ports": [
+      "1634:1634"
+    ]
+  },
+  "links": {
+    "OnboardingWizard": "http://bee.avadopackage.com"
+  },
+  "author": "AVADO",
+  "license": "(c)",
+  "dependencies": {}
+}

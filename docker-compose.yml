@@ -1,0 +1,17 @@
+version: '3.4'
+services:
+  bee.avado.dnp.dappnode.eth:
+    image: 'bee.avado.dnp.dappnode.eth:0.0.10'
+    build: ./build
+    environment:
+      - EXTRA_OPTS=
+      - 'BEE_SWAP_ENDPOINT=http://my.goerli-geth.avado.dnp.dappnode.eth:8545/'
+    volumes:
+      - 'data:/home/bee'
+    ports:
+      - '1633'
+      - '1634'
+      - '1635'
+      - '80'
+volumes:
+  data: {}

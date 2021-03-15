@@ -1,0 +1,8 @@
+.table-profile td {
+    padding-left: 0.5em;
+}
+
+.is-underline {
+    text-decoration: underline;
+    cursor: pointer;
+}

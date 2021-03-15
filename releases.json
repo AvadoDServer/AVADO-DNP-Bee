@@ -1,0 +1,73 @@
+{
+  "0.0.1": {
+    "hash": "/ipfs/QmbSmaLnKhyAcm11Q5hcLMLRwaPB6f12nHaF4gwGd33a8M",
+    "type": "manifest",
+    "uploadedTo": {
+      "dappnode": "Tue, 29 Sep 2020 13:12:01 GMT"
+    }
+  },
+  "0.0.2": {
+    "hash": "/ipfs/Qmb4B5Pu9vAuHdXtsXnxeMg3oPvEHBHinMQJLL56aFhz48",
+    "type": "manifest",
+    "uploadedTo": {
+      "dappnode": "Mon, 23 Nov 2020 18:49:08 GMT"
+    }
+  },
+  "0.0.3": {
+    "hash": "/ipfs/QmXX21fH9sN94EV7vJQMced77EPeAHtCSgL2TmoyGpg3nU",
+    "type": "manifest",
+    "uploadedTo": {
+      "dappnode": "Mon, 23 Nov 2020 19:38:35 GMT"
+    }
+  },
+  "0.0.4": {
+    "hash": "/ipfs/QmfSnFBKgLMyadjp5asfTRD6Nw1gLkStB47xeBPsTHTh6G",
+    "type": "manifest",
+    "uploadedTo": {
+      "dappnode": "Mon, 23 Nov 2020 20:53:21 GMT"
+    }
+  },
+  "0.0.5": {
+    "hash": "/ipfs/QmZvXVu3raR6jRUzpNUVQNi8VBLkUwM1ck9kt59FkTkrNf",
+    "type": "manifest",
+    "uploadedTo": {
+      "http://80.208.229.228:5001": "Wed, 03 Feb 2021 13:42:07 GMT"
+    }
+  },
+  "0.0.6": {
+    "hash": "/ipfs/QmZe8s9BzfxDpu6v8wdCh35FuiR12bnN8yXha23beRr5jw",
+    "type": "manifest",
+    "uploadedTo": {
+      "http://80.208.229.228:5001": "Tue, 09 Feb 2021 09:50:32 GMT"
+    }
+  },
+  "0.0.7": {
+    "hash": "/ipfs/QmWXm2y7emFP4Unbc7TwU6E3TkSz3WWszzy4yUr8jtZw5v",
+    "type": "manifest",
+    "uploadedTo": {
+      "http://5.2.74.166:5001": "Mon, 15 Feb 2021 23:16:06 GMT",
+      "http://80.208.229.228:5001": "Mon, 15 Feb 2021 23:44:11 GMT"
+    }
+  },
+  "0.0.8": {
+    "hash": "/ipfs/QmT8frGniQD69Nj1uyEXzuT57cDWwYKGmtvF5KH2kXv84Q",
+    "type": "manifest",
+    "uploadedTo": {
+      "http://80.208.229.228:5001": "Tue, 16 Feb 2021 00:24:23 GMT"
+    }
+  },
+  "0.0.9": {
+    "hash": "/ipfs/QmUoxw8fo72Tkw8QKAEAB4M79VeCMsxiG7i1Pi9q5VLqqz",
+    "type": "manifest",
+    "uploadedTo": {
+      "http://80.208.229.228:5001": "Tue, 16 Feb 2021 15:57:44 GMT"
+    }
+  },
+  "0.0.10": {
+    "hash": "/ipfs/QmcTEPK4JEw5nuPVFLvJSyQDhDM8cSDe5rMnwSCv4qJVyu",
+    "type": "manifest",
+    "uploadedTo": {
+      "http://80.208.229.228:5001": "Tue, 16 Feb 2021 16:56:58 GMT"
+    }
+  }
+}
