@@ -59,10 +59,14 @@ const Comp = ({ session }) => {
     const getLastCashedPayout = (peer) => {
         return axios.get(`${endpoint}/chequebook/cashout/${peer}`, {
         }).then((res) => {
-            if (!res.data || !res.data.cumulativePayout) {
+            if (!res.data.cumulativePayout) {
                 return 0;
             }
             return res.data.cumulativePayout;
+        }).catch((err) => {
+            if (err.response.data.message === "no prior cheque")  {
+                return 0;
+            }  
         });
     }
 
