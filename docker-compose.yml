@@ -1,17 +1,21 @@
 version: '3.4'
 services:
   bee.avado.dnp.dappnode.eth:
-    image: 'bee.avado.dnp.dappnode.eth:0.0.10'
-    build: ./build
-    environment:
-      - EXTRA_OPTS=
-      - 'BEE_SWAP_ENDPOINT=http://my.goerli-geth.avado.dnp.dappnode.eth:8545/'
-    volumes:
-      - 'data:/home/bee'
+    image: 'bee.avado.dnp.dappnode.eth:0.1.1'
+    build:
+      context: ./build
+      args:
+        UPSTREAM_VERSION: v1.4.1
     ports:
-      - '1633'
-      - '1634'
-      - '1635'
-      - '80'
+      - '1634:1634'
+    volumes:
+      - 'bee:/home/bee/.bee'
+    environment:
+      - PASSWORD
+      - 'BEE_SWAP_ENDPOINT=http://xdai.my.ava.do:8545'
+      - EXTRA_OPTS
+      - BEE_DB_CAPACITY=5000000
+      - BEE_WELCOME_MESSAGE=AVADO bee node!
+    restart: unless-stopped
 volumes:
-  data: {}
+  bee: {}
