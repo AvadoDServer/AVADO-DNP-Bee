@@ -1,30 +1,39 @@
 {
   "name": "bee.avado.dnp.dappnode.eth",
-  "version": "0.0.10",
-  "description": "Bee Swarm node",
-  "avatar": "/ipfs/QmPVzQQQz7YvL1sWtrb3Yxqjq4kfxaUida7zSNmtD5sgDi",
-  "type": "service",
-  "autoupdate": true,
-  "upstream": "v0.5.0",
+  "version": "0.1.1",
+  "upstreamVersion": "v1.4.1",
+  "description": "Storage and communication infrastructure for a sovereign digital society",
+  "title": "Swarm node (BEE)",
+  "avatar": "/ipfs/QmaGwyZCjAjHH6FkjGMk31bFphDG374xT5qws8ZGVgxPHP",
   "image": {
-    "path": "bee.avado.dnp.dappnode.eth_0.0.10.tar.xz",
-    "hash": "/ipfs/QmUcwZPea9M7uzeXKBPWJWmEgakEBLeBUEUfpBdirL8jgk",
-    "size": 20655704,
+    "path": "bee.avado.dnp.dappnode.eth_0.1.1.tar.xz",
+    "hash": "/ipfs/QmPQJds3bwcsaB8zSLy3Pcugp4KF78WaFaLn55RPT3tNkt",
+    "size": 42149332,
     "restart": "always",
     "environment": [
-      "EXTRA_OPTS"
-    ],
-    "volumes": [
-      "data:/home/bee"
+      "EXTRA_OPTS=--http.api eth,net,web3,txpool",
+      "PASSWORD=",
+      "BEE_SWAP_ENDPOINT=http://xdai.my.ava.do:8545",
+      "EXTRA_OPTS=",
+      "BEE_DB_CAPACITY=5000000",
+      "BEE_WELCOME_MESSAGE=AVADO bee node!"
     ],
     "ports": [
       "1634:1634"
     ]
   },
-  "links": {
-    "OnboardingWizard": "http://bee.avadopackage.com"
-  },
+  "autoupdate": true,
+  "type": "service",
   "author": "AVADO",
-  "license": "(c)",
-  "dependencies": {}
+  "links": {
+    "OnboardingWizard": "http://bee.my.ava.do/bootdashboard.html"
+  },
+  "ui": {
+    "OnboardingWizard": {
+      "url": "http://bee.my.ava.do/bootdashboard.html",
+      "external": true
+    }
+  },
+  "license": "GPL-3.0",
+  "builddate": "2021-12-31T11:38:07.122Z"
 }

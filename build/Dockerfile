@@ -1,44 +1,51 @@
+FROM node:15.14-alpine AS build
 
-FROM node:12.14.1 as build-deps-wizard
+WORKDIR /usr/src/app
 
-RUN apt-get update && apt-get install -y openssl
+ENV REACT_APP_BEE_HOST http://bee.my.ava.do:1633
 
-# build wizard
-WORKDIR /usr/src/app/wizard
-COPY wizard .
-RUN yarn
-RUN yarn build
+RUN apk add git && \
+    git clone https://github.com/ethersphere/bee-dashboard.git . && \
+    git checkout v0.12.0 && \
+    npm ci && \
+    npm run build
 
-FROM alpine:3.12 
+FROM node:15.14-alpine
 
-# download bee client
-WORKDIR /
-RUN wget https://github.com/ethersphere/bee/releases/download/v0.5.0/bee-linux-386
+ARG TARGETARCH
+ARG UPSTREAM_VERSION
 
-# nginx
-RUN apk add -U --no-cache supervisor nginx
-COPY files/nginx.conf /etc/nginx/
+ENV DOWNLOAD_URL https://github.com/ethersphere/bee/releases/download
+# ENV GETH_DOWNLOAD_URL https://gethstore.blob.core.windows.net/builds
+# ENV GETH_VERSION 1.9.24-cc05b050
 
-# supervisord
-COPY files/supervisord.conf /etc/supervisord/
+WORKDIR /home/bee
 
-# bee
-RUN addgroup -g 1000 bee \
-  && adduser -u 1000 -G bee -s /bin/sh -D bee && \
+RUN apk add --update pwgen bash wget && \
+  # wget $GETH_DOWNLOAD_URL/geth-linux-${TARGETARCH:-amd64}-${GETH_VERSION}.tar.gz && \
+  wget $DOWNLOAD_URL/$UPSTREAM_VERSION/bee-linux-${TARGETARCH:-amd64} -O /usr/local/bin/bee && \
+  # tar -xzvf geth-linux-${TARGETARCH:-amd64}-${GETH_VERSION}.tar.gz geth-linux-${TARGETARCH:-amd64}-${GETH_VERSION}/geth -C /usr/local/bin/ --strip-components 1 && \
+  # rm -rf geth-linux-${TARGETARCH:-amd64}-${GETH_VERSION}.tar.gz && \
+  # chmod +x /usr/local/bin/geth && \
+  chmod +x /usr/local/bin/bee 
+
+WORKDIR /wizard
+COPY --from=build /usr/src/app/build .
+COPY bootdashboard.html .
+
+RUN npm i -g serve
+
+RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing \
+  gosu 
+
+RUN addgroup -g 2000 bee \
+  && adduser -u 2000 -G bee -s /bin/sh -D bee && \
   mkdir -p /home/bee/.bee && \
   chown -R bee:bee /home/bee
 
+VOLUME /home/bee
 
-RUN mv /bee-linux-386 /usr/local/bin/bee
-RUN chmod +x  /usr/local/bin/bee
-COPY files/config.yml /app/config.yml
-COPY files/start.sh /app/start.sh
-RUN chmod +x /app/start.sh
+COPY run.sh /usr/local/bin/
+COPY config.yml /home/bee/
 
-#wizard
-COPY --from=build-deps-wizard /usr/src/app/wizard/build /usr/local/wizard
-
-
-ENTRYPOINT supervisord -n -c /etc/supervisord/supervisord.conf
-
-
+ENTRYPOINT [ "run.sh" ]
