@@ -22,8 +22,12 @@ echo $PASSWORD > /home/bee/.password
 
 chown -R bee:bee /home/bee/.bee
 
+echo "Starting webserver"
 serve -l 80 &
 
+echo "Starting Bee"
 exec gosu bee:bee bee start --config /home/bee/config.yml $EXTRA_OPTS $@ 2>&1
 
+
+echo "Bee exited.. sleeping for 90s"
 sleep 90
