@@ -1,7 +1,9 @@
 cd files
+rm -Rf dashboard
 mkdir -p dashboard
 cd dashboard
-    git clone https://github.com/ethersphere/bee-dashboard.git . && \
-    git checkout v0.13.0 && \
-    npm ci && \
-    NODE_OPTIONS=--max_old_space_size=4096 npm run build
+git clone https://github.com/ethersphere/bee-dashboard.git . && \
+git checkout v0.13.0 && \
+npm ci && \
+NODE_OPTIONS=--max_old_space_size=4096 npm run build
+cp -Rp build ../dashboard_build

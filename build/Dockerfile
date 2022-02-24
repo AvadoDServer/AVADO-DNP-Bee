@@ -34,7 +34,7 @@ RUN addgroup -g 2000 bee \
   chown -R bee:bee /home/bee
 
 WORKDIR /wizard
-COPY files/dashboard/build .
+COPY files/dashboard_build .
 COPY bootdashboard.html .
 COPY bootdashboard.css .
 COPY boot.html .
