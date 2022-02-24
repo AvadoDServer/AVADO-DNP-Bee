@@ -6,20 +6,21 @@
   "title": "Swarm node (BEE)",
   "avatar": "/ipfs/QmaGwyZCjAjHH6FkjGMk31bFphDG374xT5qws8ZGVgxPHP",
   "image": {
-    "path": "bee.avado.dnp.dappnode.eth_0.1.1.tar.xz",
-    "hash": "/ipfs/QmTTvyDjGPHsAUzHW2D97EFrg9Mpt62ro6gai3rUfU2AQS",
-    "size": 42173244,
     "restart": "always",
     "environment": [
       "EXTRA_OPTS=--http.api eth,net,web3,txpool",
       "PASSWORD=",
-      "BEE_SWAP_ENDPOINT=http://xdai.my.ava.do:8545",
+      "BEE_SWAP_ENDPOINT=https://rpc.gnosischain.com/",
       "EXTRA_OPTS=",
       "BEE_DB_CAPACITY=5000000",
       "BEE_WELCOME_MESSAGE=AVADO bee node!"
     ],
     "ports": [
+      "1633:1633",
       "1634:1634"
+    ],
+    "volumes": [
+      "bee:/home/bee/.bee"
     ]
   },
   "autoupdate": true,
@@ -34,6 +35,5 @@
       "external": true
     }
   },
-  "license": "GPL-3.0",
-  "builddate": "2021-12-31T12:03:13.998Z"
+  "license": "GPL-3.0"
 }
